@@ -1,0 +1,20 @@
+{
+  "name": "compbotdatacollection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node index.ts",
+    "start": "nodemon ./dist/index.js",
+    "prod": "yarn build && yarn start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/mongoose": "^5.7.16",
+    "axios": "^0.19.2",
+    "discord.js": "^12.2.0",
+    "mongoose": "^5.9.13"
+  }
+}
