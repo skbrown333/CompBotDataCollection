@@ -4,17 +4,18 @@ import { MatchModel } from "./models/Matches/match.model";
 import { ChampionModel } from "./models/Champions/champion.model";
 import * as Discord from "discord.js";
 
-Mongoose.connect("mongodb://localhost:27017/compBot");
-
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const RIOT_TOKEN = process.env.RIOT_TOKEN;
 const LEAGUE = process.argv[2];
+const MONGO_PASS = process.env.MONGO_PASS;
+
+const mongoUrl = `mongodb+srv://pi:${MONGO_PASS}@cluster0-rstmt.mongodb.net/compbot?retryWrites=true&w=majority`;
+Mongoose.connect(mongoUrl);
 
 const client = new Discord.Client();
 let channel;
 client.login(DISCORD_TOKEN);
 
-//@ts-ignore
 client.on("ready", () => {
   channel = client.channels.cache.get("709396049692721152");
   getPlayers({ queue: 420 });
