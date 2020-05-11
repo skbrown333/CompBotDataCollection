@@ -14,9 +14,9 @@ export async function updateOneOrCreate(
     record.total_magic_dmg += params.magic_dmg;
     record.total_physical_dmg += params.physical_dmg;
     record.total_true_dmg += params.true_dmg;
-    record.total_deaths += params.total_deaths;
-    record.total_kills += params.total_kills;
-    record.total_assists += params.total_assists;
+    record.total_deaths += params.deaths;
+    record.total_kills += params.kills;
+    record.total_assists += params.assists;
     record.save();
     return record;
   } else {
