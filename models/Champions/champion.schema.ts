@@ -17,6 +17,9 @@ const ChampionSchema = new Schema(
     total_healing: { type: Number, required: true, default: 0 },
     total_dmg_taken: { type: Number, required: true, default: 0 },
     total_dmg_mitigated: { type: Number, required: true, default: 0 },
+    total_deaths: { type: Number, required: true, default: 0 },
+    total_kills: { type: Number, required: true, default: 0 },
+    total_assists: { type: Number, required: true, default: 0 },
     count: { type: Number, required: true, default: 1 },
   },
   options
@@ -54,6 +57,18 @@ ChampionSchema.virtual("avg_dmg_mitigated").get(function () {
   return this.total_dmg_mitigated / this.count;
 });
 
+ChampionSchema.virtual("avg_deaths").get(function () {
+  return this.total_deaths / this.count;
+});
+
+ChampionSchema.virtual("avg_kills").get(function () {
+  return this.total_kills / this.count;
+});
+
+ChampionSchema.virtual("avg_assists").get(function () {
+  return this.total_assists / this.count;
+});
+
 function toJSON(doc, ret) {
   delete ret._id;
   delete ret.total_cc_duration;
@@ -63,6 +78,9 @@ function toJSON(doc, ret) {
   delete ret.total_physical_dmg;
   delete ret.total_true_dmg;
   delete ret.total_dmg_mitigated;
+  delete ret.total_deaths;
+  delete ret.total_kills;
+  delete ret.total_assits;
   delete ret.count;
 }
 

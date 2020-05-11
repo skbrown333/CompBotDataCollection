@@ -9,6 +9,9 @@ export interface IChampion {
   total_healing: number;
   total_dmg_taken: number;
   total_dmg_mitigated: number;
+  total_deaths: number;
+  total_kills: number;
+  total_assists: number;
   count: number;
 }
 
@@ -29,6 +32,9 @@ export interface IChampionModel extends Model<IChampionDocument> {
       healing: number;
       dmg_taken: number;
       dmg_mitigated: number;
+      deaths: number;
+      kills: number;
+      assists: number;
     }
   ) => Promise<IChampionDocument>;
 }

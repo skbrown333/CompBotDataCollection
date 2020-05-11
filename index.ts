@@ -120,6 +120,9 @@ async function populateMatch(match) {
         magic_dmg: par.stats.magicDamageDealtToChampions,
         physical_dmg: par.stats.physicalDamageDealtToChampions,
         true_dmg: par.stats.trueDamageDealtToChampions,
+        deaths: par.stats.deaths,
+        kills: par.stats.kills,
+        assists: par.stats.assists,
       });
       champs.push(par.championId);
     }
