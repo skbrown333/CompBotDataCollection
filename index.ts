@@ -6,8 +6,9 @@ import * as Discord from "discord.js";
 
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const RIOT_TOKEN = process.env.RIOT_TOKEN;
-const LEAGUE = process.argv[2];
 const MONGO_PASS = process.env.MONGO_PASS;
+const LEAGUE = process.argv[2];
+const DEFAULT_PAGE = parseInt(process.argv[3]) || 1;
 
 const mongoUrl = `mongodb+srv://pi:${MONGO_PASS}@cluster0-rstmt.mongodb.net/compbot?retryWrites=true&w=majority`;
 Mongoose.connect(mongoUrl);
@@ -33,7 +34,7 @@ let axiosInstance = axios.create({
  * @param {Object} params - params for filtering player matches
  */
 async function getPlayers(params) {
-  let page = 1;
+  let page = DEFAULT_PAGE;
   let done = false;
   let division = 4;
   while (division >= 1) {

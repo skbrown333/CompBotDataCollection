@@ -70,7 +70,6 @@ ChampionSchema.virtual("avg_assists").get(function () {
 });
 
 function toJSON(doc, ret) {
-  delete ret._id;
   delete ret.total_cc_duration;
   delete ret.total_dmg_taken;
   delete ret.total_healing;
@@ -80,7 +79,7 @@ function toJSON(doc, ret) {
   delete ret.total_dmg_mitigated;
   delete ret.total_deaths;
   delete ret.total_kills;
-  delete ret.total_assits;
+  delete ret.total_assists;
   delete ret.count;
 }
 
