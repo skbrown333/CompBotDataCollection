@@ -15,6 +15,6 @@
     "@types/mongoose": "^5.7.16",
     "axios": "^0.19.2",
     "discord.js": "^12.2.0",
-    "mongoose": "^5.9.13"
+    "mongoose": "^5.13.15"
   }
 }
